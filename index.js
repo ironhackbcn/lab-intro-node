@@ -13,6 +13,9 @@ class SortedList {
   };
 
   get(pos) {
+    if (!this.items[pos-1]) {
+      throw new Error('OutOfBounds');
+    }
     return this.items[pos -1];
   };
 
