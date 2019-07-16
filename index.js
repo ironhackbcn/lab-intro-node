@@ -14,7 +14,8 @@ class SortedList {
   }
   max() {
     try {
-      this.items.reduce((max,a) => {
+      console.log(this.items);
+      return this.items.reduce((max,a) => {
         if (a > max) {
           return a;
         }
@@ -27,7 +28,7 @@ class SortedList {
   }
   min() {
     try {
-      this.items.reduce((min,a) => {
+      return this.items.reduce((min,a) => {
         if (a > min) {
           return min;
         }
@@ -38,8 +39,27 @@ class SortedList {
       throw new Error ('EmptySortedList');
     }
   }
-  average() {}
-  sum() {}
+  average() {
+    try {
+      const avgTotal = this.items.reduce((avg,a) => {
+        return avg += a;
+      })
+      return avgTotal / this.items.length;
+    }
+    catch {
+      throw new Error ('EmptySortedList');
+    }
+  }
+  sum() {
+    try {
+      return this.items.reduce((sum,a) => {
+          return sum + a;
+        })
+    }
+    catch {
+      return 0;
+    }
+  }
 };
 
 module.exports = SortedList;
