@@ -3,10 +3,12 @@ class SortedList {
     this.sortedList = [];
     this.length = 0;
   }
+
   add(item) {
     this.sortedList.push(item);
     this.length++;
   }
+
   get(pos) {
     if (this.sortedList[pos - 1] === undefined) {
       throw new Error("OutOfBounds");
@@ -14,6 +16,7 @@ class SortedList {
       return this.sortedList[pos - 1];
     }
   }
+
   max() {
     if (this.sortedList.length === 0) {
       throw new Error("EmptySortedList");
@@ -29,6 +32,7 @@ class SortedList {
       return Math.min(...this.sortedList);
     }
   }
+
   average() {
     if (this.sortedList.length === 0) {
       throw new Error("EmptySortedList");
@@ -37,6 +41,7 @@ class SortedList {
       return result / this.sortedList.length;
     }
   }
+
   sum() {
     if (this.sortedList.length === 0) {
       return 0;
