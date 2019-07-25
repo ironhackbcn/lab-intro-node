@@ -6,17 +6,17 @@ class SortedList {
   add(item) {
     this.items.push(item);
     this.length++;
-    this.items.sort((fItem, sItem) => {fItem-sItem});
+    this.items.sort((fItem, sItem) => {
+      return fItem - sItem;
+    });
   }
 
   get(pos) {
-    console.log (" "+this.items)
-    if (this.length === 0 || pos>this.length){
-      throw new Error ("OutOfBounds")
-     }else{
-       return this.items[pos];
-     }
-     console.log (this.items)
+    if (this.length === 0 || pos > this.length) {
+      throw new Error("OutOfBounds");
+    } else {
+      return this.items[pos-1];
+    }
   }
 
   max() {
