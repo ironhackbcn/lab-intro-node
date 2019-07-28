@@ -3,29 +3,45 @@ class SortedList {
     this.items = [];
     this.length = 0;
   }
+
   add(item) {
     this.items.push(item);
     this.length = this.items.length;
 
-    this.items.sort(function(a, b) {
-      return a - b;
-    });
+    this.items.sort((a, b) => a - b);
   }
+
   get(pos) {
     return this.items[pos - 1];
   }
-  max() {}
-  min() {}
-  average() {}
-  sum() {}
+
+  max() {
+    this.checkLength();
+    return Math.max(...this.items);
+  }
+
+  min() {
+    this.checkLength();
+    return Math.min(...this.items);
+  }
+
+  average() {
+    this.checkLength();
+    return this.sum(this.items) / this.length;
+  }
+
+  sum() {
+    if (this.length === 0) {
+      return 0;
+    }
+    return this.items.reduce((item1, item2) => item1 + item2);
+  }
+
+  checkLength() {
+    if (this.length === 0) {
+      throw new Error('EmptySortedList');
+    }
+  }
 }
 
 module.exports = SortedList;
-
-// var sl = new SortedList();
-
-// var foo = 10;
-// for (let i = 0; i < 200; i++) {
-//   sl.add(foo * i);
-//   sl.get(i + 1);
-// }
