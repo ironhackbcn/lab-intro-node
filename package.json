@@ -4,6 +4,7 @@
   "description": "Intro Node Lab for Students",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint --init",
     "test": "mocha"
   },
   "repository": {
@@ -21,6 +22,10 @@
   },
   "homepage": "https://github.com/ironhack/lab-intro-node#readme",
   "devDependencies": {
+    "eslint": "^6.1.0",
     "mocha": "^3.4.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }
